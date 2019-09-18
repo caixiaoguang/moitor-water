@@ -91,7 +91,7 @@ function drawLine(view, draw, Graphic) {
 //初始化监测点
 function initPoint(Graphic,view) {
     $.ajax({
-        url: '../lib/point.json',
+        url: './../lib/point.json',
         type: 'get',
         success: function (points) {
             addPoint(Graphic, points,view)
