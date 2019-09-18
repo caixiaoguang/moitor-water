@@ -1,0 +1,188 @@
+html,
+body,
+#container {
+    width: 100%;
+    height: 100%;
+}
+
+#container {
+    position: relative;
+    top: 0;
+
+    .map-child {
+        position: absolute;
+        z-index: 900;
+    }
+
+    #mapView {
+        height: calc(~"100vh - 50px");
+        width: 100%;
+        position: absolute;
+        top: 50px;
+    }
+
+    .head {
+        height: 50px;
+        width: 100%;
+
+        .tille {
+            float: left;
+            font-size: 20px;
+            line-height: 50px;
+            margin-left: 100px;
+        }
+
+        .layui-tab {
+            float: right;
+
+            li {
+                color: rgba(255, 255, 255, .7);
+
+                &:hover {
+                    color: #fff;
+                }
+
+                &.layui-this {
+                    color: #fff;
+
+                    &:after {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+
+        .tool-bar {
+            top: 80px;
+            left: 50px;
+
+            .layui-tab-item {
+                &.tool-item {
+                    .layui-nav {
+                        border-radius: 3px;
+                        box-shadow: 0 2px 2px rgba(0, 0, 0, .15);
+
+                        li {
+                            height: 45px;
+                            line-height: 45px;
+
+                            .layui-nav-child {
+                                top: 50px;
+
+                                dd {
+                                    &.layui-this {
+                                        background-color: transparent;
+
+                                        a {
+                                            background-color: transparent;
+                                        }
+                                    }
+                                }
+
+                                a {
+                                    color: rgba(255, 255, 255, .7);
+
+                                    &:hover {
+                                        color: #fff;
+                                        background-color: transparent;
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 数据管理
+            .number-page {
+                height: calc(~"100vh - 50px");
+                width: 100vw;
+                position: fixed;
+                left: 0;
+                top: 50px;
+                background-color: #fff;
+
+                // 导航栏
+                .layui-nav {
+                    height: 100%;
+                    border-radius: 0;
+                }
+
+                // 内容
+                .content {
+                    height: 100%;
+                    width: 100%;
+                    left: 200px;
+                    top: 0;
+                    display: flex;
+                    flex-direction: column;
+                    color: #000;
+
+
+
+                    .top {
+                        height: 50%;
+                    }
+
+                    .bottom {
+                        height: 50%;
+
+                        .layui-form {
+                            margin-top: 0;
+                        }
+                    }
+                }
+
+                .point-evaluate {
+                    padding: 20px;
+                    width: calc(~"100% - 200px");
+                    .top {
+                        height: 100px;
+                        .upload-title{
+                            display: block;
+                            font-size: 20px;
+                            margin-bottom: 10px;
+                        }
+                        div{
+                            button{
+                                margin-right: 30px;
+                            }
+                        }
+                    }
+                    .bottom{
+                        height: calc(~"100% - 100px");
+                        .evaluate-result{
+                            text-align: center;
+                            font-size: 20px;
+                            height: 40px;
+                        }
+                        #evaluate-chart{
+                            height: calc(~"100% - 40px");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .right-card {
+        top: 90px;
+        right: 50px;
+
+        .layui-collapse {
+            width: 450px;
+        }
+
+        .layui-colla-content {
+            background-color: #fff;
+            padding: 0px;
+
+            .layui-form {
+                margin: 0;
+            }
+        }
+    }
+
+}

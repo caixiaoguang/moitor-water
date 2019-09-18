@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/css/main.css">
+    <link rel="stylesheet" href="./lib/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="container">
+        <!-- 头部 -->
+        <div class="head layui-bg-black map-child">
+            <!-- 标题 -->
+            <!-- <div class="tille">贵阳市周边饮用水源地监测平台</div> -->
+            <div class="layui-tab">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">水质监测</li>
+                    <li>水质评价</li>
+                    <li>环境监测</li>
+                    <li>生态风险</li>
+                    <li>数据管理</li>
+                </ul>
+                <!-- 工具栏 -->
+                <div class="layui-tab-content tool-bar map-child">
+                    <div class="layui-tab-item tool-item layui-show">
+                        <ul class="layui-nav layui-bg-black" lay-filter="">
+                            <li class="layui-nav-item">
+                                <a href="javascript:;">基础工具</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;" class="zoom-in">放大</a></dd>
+                                    <dd><a href="javascript:;" class="zoom-out">缩小</a></dd>
+                                    <dd><a href="javascript:;" class="draw">标绘</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">监测点</a></li>
+                            <li class="layui-nav-item"><a href="javascript:;">过程信息</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;">指标一</a></dd>
+                                    <dd><a href="javascript:;">指标二</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">评价结果</a></li>
+                        </ul>
+                    </div>
+                    <div class="layui-tab-item tool-item">
+                        <ul class="layui-nav layui-bg-black" lay-filter="">
+                            <li class="layui-nav-item">
+                                <a href="javascript:;">基础工具</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;" class="zoom-in">放大</a></dd>
+                                    <dd><a href="javascript:;" class="zoom-out">缩小</a></dd>
+                                    <dd><a href="javascript:;" class="draw">标绘</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">蓝藻监测</a></li>
+                            <li class="layui-nav-item"><a href="javascript:;">过程信息</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;">指标一</a></dd>
+                                    <dd><a href="javascript:;">指标二</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">蓝藻预测</a></li>
+                        </ul>
+                    </div>
+                    <div class="layui-tab-item tool-item">
+                        <ul class="layui-nav layui-bg-black" lay-filter="">
+                            <li class="layui-nav-item">
+                                <a href="javascript:;">基础工具</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;" class="zoom-in">放大</a></dd>
+                                    <dd><a href="javascript:;" class="zoom-out">缩小</a></dd>
+                                    <dd><a href="javascript:;" class="draw">标绘</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">现状</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;">土地利用覆盖</a></dd>
+                                    <dd><a href="javascript:;">遥感影像</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">环境变化</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;">土地利用变化</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">历史数据</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;">土地利用</a></dd>
+                                    <dd><a href="javascript:;">遥感影像</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">环境评价</a></li>
+                        </ul>
+                    </div>
+                    <div class="layui-tab-item tool-item">
+                        <ul class="layui-nav layui-bg-black" lay-filter="">
+                            <li class="layui-nav-item">
+                                <a href="javascript:;">基础工具</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;" class="zoom-in">放大</a></dd>
+                                    <dd><a href="javascript:;" class="zoom-out">缩小</a></dd>
+                                    <dd><a href="javascript:;" class="draw">标绘</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">入侵生物</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;">空心莲子草</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">过程信息</a>
+                                <dl class="layui-nav-child layui-bg-black">
+                                    <!-- 二级菜单 -->
+                                    <dd><a href="javascript:;">指标一</a></dd>
+                                    <dd><a href="javascript:;">指标二</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item"><a href="javascript:;">生态风险评价</a></li>
+                        </ul>
+                    </div>
+                    <!-- 数据管理 -->
+                    <div class="layui-tab-item">
+                        <div class="number-page">
+                            <!-- 导航 -->
+                            <ul class="layui-nav layui-nav-tree" lay-filter="dataManage">
+                                <li class="layui-nav-item layui-nav-itemed">
+                                    <a href="javascript:;">水质监测</a>
+                                    <dl class="layui-nav-child">
+                                        <dd><a href="javascript:;" id='point-manage' class="layui-this">监测点管理</a></dd>
+                                        <dd><a href="javascript:;" id="point-evaluate">监测点评价</a></dd>
+                                    </dl>
+                                </li>
+                                <li class="layui-nav-item">
+                                    <a href="javascript:;">水质评价</a>
+                                    <dl class="layui-nav-child">
+                                        <dd><a href="javascript:;">监测点管理</a></dd>
+                                        <dd><a href="javascript:;">监测点评价</a></dd>
+                                    </dl>
+                                </li>
+                                <li class="layui-nav-item">
+                                    <a href="javascript:;">环境监测</a>
+                                    <dl class="layui-nav-child">
+                                        <dd><a href="javascript:;">监测点管理</a></dd>
+                                        <dd><a href="javascript:;">监测点评价</a></dd>
+                                    </dl>
+                                </li>
+                                <li class="layui-nav-item">
+                                    <a href="javascript:;">生态风险</a>
+                                    <dl class="layui-nav-child">
+                                        <dd><a href="javascript:;">监测点管理</a></dd>
+                                        <dd><a href="javascript:;">监测点评价</a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                            <!-- 内容 -->
+                            <div class="content map-child point-manage">
+                                <div class="top" id="subMapView"></div>
+                                <div class="bottom">
+                                    <table id="pointProperty"></table>
+                                </div>
+                            </div>
+                            <div class="content map-child point-evaluate" style="display: none">
+                                <div class="top">
+                                    <span class="upload-title">请选择需要上传的文件：</span>
+                                    <div>
+                                        <button type="button" class="layui-btn" id="uploadVector">
+                                            <i class="layui-icon">&#xe630;</i>上传矢量
+                                        </button>
+                                        <button type="button" class="layui-btn" id="uploadImg">
+                                            <i class="layui-icon">&#xe67c;</i>上传图片
+                                        </button>
+                                        <button type="button" class="layui-btn" id="uploadFile">
+                                            <i class="layui-icon">&#xe621;</i>上传分析文件
+                                        </button>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="bottom">
+                                    <div class="evaluate-result">分析结果</div>
+                                    <div id="evaluate-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 地图 -->
+        <div id="mapView"></div>
+        <!-- 右侧面板 -->
+        <!-- <div class="right-card map-child">
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">监测点列表</h2>
+                    <div class="layui-colla-content layui-show">
+                        <div id="pointProperty"></div>
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">title</h2>
+                    <div class="layui-colla-content layui-show">内容区域</div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">title</h2>
+                    <div class="layui-colla-content layui-show">内容区域</div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <script src="./lib/layui/layui.all.js"></script>
+    <script src="./lib/jquery-1.8.2.min.js"></script>
+    <script src="./lib/echarts.js"></script>
+    <script src="https://js.arcgis.com/4.12/"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/dataManaPage.js"></script>
+</body>
+
+</html>
