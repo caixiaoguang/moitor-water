@@ -31,7 +31,7 @@ require([
 
     addZoomEvent();
 
-    initPoint(Graphic,view);
+    initPoint(Graphic, view);
 
 });
 
@@ -89,18 +89,13 @@ function drawLine(view, draw, Graphic) {
 }
 
 //初始化监测点
-function initPoint(Graphic,view) {
-    $.ajax({
-        url: './../lib/point.json',
-        type: 'get',
-        success: function (points) {
-            addPoint(Graphic, points,view)
-        }
-    })
+function initPoint(Graphic, view) {
+    addPoint(Graphic, points, view)
+
 }
 
 //添加监测点
-function addPoint(Graphic, points,view) {
+function addPoint(Graphic, points, view) {
     var len = points.features.length;
     for (var i = 0; i < len; i++) {
         var item = points.features[i].geometry.coordinates;

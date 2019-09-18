@@ -21,17 +21,6 @@ require([
 
 });
 
-
-function getPoint() {
-    $.ajax({
-        url: '../lib/point.json',
-        type: 'get',
-        success: function (points) {
-            initTable(points)
-        }
-    })
-}
-
 //监测点属性表格
 function initTable(points) {
     var tableData = [];
@@ -160,7 +149,7 @@ function initDataChart() {
 }
 
 function initPage() {
-    getPoint();
+    initTable(points);
 
     $('#point-manage').on('click', () => {
         $('.point-evaluate').css('display', 'none');
