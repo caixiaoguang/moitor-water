@@ -12,6 +12,14 @@ body,
   position: absolute;
   z-index: 900;
 }
+#container .icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.35em;
+  fill: currentColor;
+  overflow: hidden;
+  margin-right: 5px;
+}
 #container #mapView {
   height: calc(100vh - 50px);
   width: 100%;
@@ -129,7 +137,7 @@ body,
 }
 #container .right-card {
   top: 90px;
-  right: 50px;
+  right: 30px;
 }
 #container .right-card .layui-collapse {
   width: 450px;

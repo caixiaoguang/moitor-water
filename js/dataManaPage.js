@@ -56,7 +56,7 @@ function initTable(points) {
         ]]
     });
 
-    layui.table.on('row', function (obj) {
+    layui.table.on('row(dataManage)', function (obj) {
         subView.goTo([obj.data.lon, obj.data.lat])
     });
 };
@@ -69,83 +69,57 @@ function initDataChart() {
     // }
 
     myChart = echarts.init(document.getElementById("evaluate-chart"));
-    // app.title = '折柱混合';
 
     let option = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'cross',
-                crossStyle: {
-                    color: '#999'
-                }
-            }
+        title: {
+            text: "监测数据",
+            x: "center"
         },
-        toolbox: {
-            feature: {
-                dataView: { show: true, readOnly: false },
-                magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
-                saveAsImage: { show: true }
-            }
+        tooltip: {
+            trigger: "item",
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
         legend: {
-            data: ['蒸发量', '降水量', '平均温度']
+            orient: "vertical",
+            left: "left",
+            data: ["指标一", "指标二", "指标三", "指标四", "指标五"]
         },
-        xAxis: [
-            {
-                type: 'category',
-                data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-                axisPointer: {
-                    type: 'shadow'
-                }
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value',
-                name: '水量',
-                min: 0,
-                max: 250,
-                interval: 50,
-                axisLabel: {
-                    formatter: '{value} ml'
-                }
+        series: [{
+            name: "监测指标",
+            type: "pie",
+            radius: "55%",
+            center: ["50%", "60%"],
+            data: [{
+                value: 335,
+                name: "指标一"
             },
             {
-                type: 'value',
-                name: '温度',
-                min: 0,
-                max: 25,
-                interval: 5,
-                axisLabel: {
-                    formatter: '{value} °C'
+                value: 310,
+                name: "指标二"
+            },
+            {
+                value: 234,
+                name: "指标三"
+            },
+            {
+                value: 135,
+                name: "指标四"
+            },
+            {
+                value: 1548,
+                name: "指标五"
+            }
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: "rgba(0, 0, 0, 0.5)"
                 }
             }
-        ],
-        series: [
-            {
-                name: '蒸发量',
-                type: 'bar',
-                data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
-            },
-            {
-                name: '降水量',
-                type: 'bar',
-                data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
-            },
-            {
-                name: '平均温度',
-                type: 'line',
-                yAxisIndex: 1,
-                data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
-            }
-        ]
+        }]
     };
-
     myChart.setOption(option);
-
-
 }
 
 function initPage() {
@@ -160,6 +134,14 @@ function initPage() {
         $('.point-evaluate').css('display', 'block');
         initDataChart();
     })
+
+    $('.layui-tab >ul li:lt(4)').on('click', () => {
+        $('.right-card').css('display', 'block');
+    });
+    $('.layui-tab >ul li:gt(3)').on('click', () => {
+        $('.right-card').css('display', 'none');
+    });
+
 
     var uploadInst = layui.upload.render({
         elem: '#uploadImg' //绑定元素
@@ -183,6 +165,16 @@ function initPage() {
     });
     var uploadInst = layui.upload.render({
         elem: '#uploadFile' //绑定元素
+        , url: '/upload/' //上传接口
+        , done: function (res) {
+            //上传完毕回调
+        }
+        , error: function () {
+            //请求异常回调
+        }
+    });
+    var uploadInst = layui.upload.render({
+        elem: '#uploadPath' //绑定元素
         , url: '/upload/' //上传接口
         , done: function (res) {
             //上传完毕回调

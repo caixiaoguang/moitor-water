@@ -14,6 +14,15 @@ body,
         z-index: 900;
     }
 
+    .icon {
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: -0.35em;
+        fill: currentColor;
+        overflow: hidden;
+        margin-right: 5px;
+    }
+
     #mapView {
         height: calc(~"100vh - 50px");
         width: 100%;
@@ -138,27 +147,33 @@ body,
                 .point-evaluate {
                     padding: 20px;
                     width: calc(~"100% - 200px");
+
                     .top {
                         height: 100px;
-                        .upload-title{
+
+                        .upload-title {
                             display: block;
                             font-size: 20px;
                             margin-bottom: 10px;
                         }
-                        div{
-                            button{
+
+                        div {
+                            button {
                                 margin-right: 30px;
                             }
                         }
                     }
-                    .bottom{
+
+                    .bottom {
                         height: calc(~"100% - 100px");
-                        .evaluate-result{
+
+                        .evaluate-result {
                             text-align: center;
                             font-size: 20px;
                             height: 40px;
                         }
-                        #evaluate-chart{
+
+                        #evaluate-chart {
                             height: calc(~"100% - 40px");
                         }
                     }
@@ -169,7 +184,7 @@ body,
 
     .right-card {
         top: 90px;
-        right: 50px;
+        right: 30px;
 
         .layui-collapse {
             width: 450px;
@@ -178,6 +193,8 @@ body,
         .layui-colla-content {
             background-color: #fff;
             padding: 0px;
+            // height: 900px;
+
 
             .layui-form {
                 margin: 0;

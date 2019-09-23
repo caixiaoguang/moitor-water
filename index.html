@@ -20,11 +20,22 @@
             <div class="tille">贵阳市周边饮用水源地监测平台</div>
             <div class="layui-tab">
                 <ul class="layui-tab-title">
-                    <li class="layui-this">水质监测</li>
-                    <li>水质评价</li>
-                    <li>环境监测</li>
-                    <li>生态风险</li>
-                    <li>数据管理</li>
+                    <li class="layui-this"><svg class="icon" style="height:1.2em;width:1.2em;vertical-align: -0.2em;"
+                            aria-hidden="true">
+                            <use xlink:href="#icon-shuidi"></use>
+                        </svg>水质监测</li>
+                    <li><svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-pingjia"></use>
+                        </svg>水质评价</li>
+                    <li><svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-jiancemoshi"></use>
+                        </svg>环境监测</li>
+                    <li><svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-fengxianbaozhangjihua"></use>
+                        </svg>生态风险</li>
+                    <li><svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-shuju"></use>
+                        </svg>数据管理</li>
                 </ul>
                 <!-- 工具栏 -->
                 <div class="layui-tab-content tool-bar map-child">
@@ -175,7 +186,7 @@
                             <div class="content map-child point-manage">
                                 <div class="top" id="subMapView"></div>
                                 <div class="bottom">
-                                    <table id="pointProperty"></table>
+                                    <table id="pointProperty" lay-filter="dataManage"></table>
                                 </div>
                             </div>
                             <div class="content map-child point-evaluate" style="display: none">
@@ -190,6 +201,9 @@
                                         </button>
                                         <button type="button" class="layui-btn" id="uploadFile">
                                             <i class="layui-icon">&#xe621;</i>上传分析文件
+                                        </button>
+                                        <button type="button" class="layui-btn" id="uploadPath">
+                                            <i class="layui-icon">&#xe674;</i>上传路径
                                         </button>
                                     </div>
                                     <hr>
@@ -207,28 +221,21 @@
         <!-- 地图 -->
         <div id="mapView"></div>
         <!-- 右侧面板 -->
-        <!-- <div class="right-card map-child">
+        <div class="right-card map-child">
             <div class="layui-collapse">
                 <div class="layui-colla-item">
                     <h2 class="layui-colla-title">监测点列表</h2>
                     <div class="layui-colla-content layui-show">
-                        <div id="pointProperty"></div>
+                        <table id="rightPointProperty" lay-filter="rightPointProperty"></table>
                     </div>
                 </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">title</h2>
-                    <div class="layui-colla-content layui-show">内容区域</div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">title</h2>
-                    <div class="layui-colla-content layui-show">内容区域</div>
-                </div>
             </div>
-        </div> -->
+        </div>
     </div>
     <script src="./lib/layui/layui.all.js"></script>
     <script src="./lib/jquery-1.8.2.min.js"></script>
     <script src="./lib/echarts.js"></script>
+    <script src="./lib/icon/iconfont.js"></script>
     <script src="https://js.arcgis.com/4.12/"></script>
     <script src="./lib/point.js"></script>
     <script src="./js/index.js"></script>
