@@ -300,7 +300,7 @@ function initRightChart(id) {
             title: e.name,
             type: 2,
             area: ['800px', '600px'],
-            content: '../page/chart.html'
+            content: 'https://caixiaoguang.github.io/monitor-water/page/chart.html'
         })
 
     })
