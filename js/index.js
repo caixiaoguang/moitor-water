@@ -35,7 +35,11 @@ require([
     addZoomEvent();
 
     initPoint(Graphic, view);
-    initRightTable(points, Graphic);
+    // initRightTable(points, Graphic);
+    initRightChart('chart1');
+    initRightChart('chart2');
+    initRightChart('chart3');
+    initRightChart('chart4');
 
 });
 
@@ -225,7 +229,7 @@ function initRightTable(points, Graphic) {
         , data: tableData
         , limit: 20
         , cols: [[ //表头
-            { field: 'name', title: '名称',  fixed: 'left' }
+            { field: 'name', title: '名称', fixed: 'left' }
             , { field: 'lon', title: '经度', }
             , { field: 'lat', title: '纬度', }
             , { field: 'property1', title: '指标一', }
@@ -238,4 +242,67 @@ function initRightTable(points, Graphic) {
         focusPoint(obj.data.id, Graphic)
     });
 };
+
+//右侧图表
+function initRightChart(id) {
+    myChart = echarts.init(document.getElementById(id));
+
+    let option = {
+        color: ['#3398DB'],
+        title: {
+            text: '监测点一周综合数值变化情况', x: 'center', top: '8%', textStyle: {
+                fontWeight: 'normal',
+                fontSize: 16
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            },
+            formatter: function (e) {
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '数值',
+                type: 'bar',
+                barWidth: '60%',
+                data: [10, 52, 200, 334, 390, 330, 220]
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+
+    myChart.on('click', function (e) {
+        layer.open({
+            title: e.name,
+            type: 2,
+            area: ['800px', '600px'],
+            content: '../page/chart.html'
+        })
+
+    })
+}
 

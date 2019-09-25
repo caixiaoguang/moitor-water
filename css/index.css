@@ -136,16 +136,16 @@ body,
   height: calc(100% - 40px);
 }
 #container .right-card {
-  top: 90px;
-  right: 30px;
+  top: 50px;
+  right: 0;
 }
 #container .right-card .layui-collapse {
-  width: 450px;
+  width: 350px;
 }
 #container .right-card .layui-colla-content {
   background-color: #fff;
   padding: 0px;
 }
-#container .right-card .layui-colla-content .layui-form {
-  margin: 0;
+#container .right-card .layui-colla-content .right-chart {
+  height: calc((100vh - 95px)/4);
 }
