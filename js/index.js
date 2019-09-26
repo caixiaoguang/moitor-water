@@ -41,6 +41,8 @@ require([
     initRightChart('chart3');
     initRightChart('chart4');
 
+    rightChartCombPoint(Graphic);
+
 });
 
 
@@ -105,7 +107,7 @@ function initPoint(Graphic, view) {
 //添加监测点
 function addPoint(Graphic, points, view) {
     var len = points.features.length;
-    for (var i = 0; i < len; i++) {
+    for (var i = 0; i < 4; i++) {
         var item = points.features[i].geometry.coordinates;
         var properties = points.features[i].properties;
         var point = {
@@ -189,19 +191,17 @@ function focusPoint(id, Graphic) {
     });
     view.graphics.add(pointGraphic);
 
-    var trs = $("div[lay-id = 'rightPointProperty'] tbody:first tr");
+    // var trs = $("div[lay-id = 'rightPointProperty'] tbody:first tr");
 
-    trs.css('background', '#fff');
+    // trs.css('background', '#fff');
 
-    if (trs[id - 1]) {
-        $(trs[id - 1]).css('background', 'orange')
-    }
+    // if (trs[id - 1]) {
+    //     $(trs[id - 1]).css('background', 'orange')
+    // }
+    $('.right-chart,.active').removeClass('active');
+    var $charts = $('.right-chart');
 
-
-
-
-
-
+    $($charts[id - 1]).addClass('active');
 }
 
 //监测点属性表格
@@ -303,6 +303,15 @@ function initRightChart(id) {
             content: 'https://caixiaoguang.github.io/monitor-water/page/chart.html'
         })
 
+    })
+}
+
+//地图与图表联动
+function rightChartCombPoint(Graphic) {
+    $('.right-chart').on('click', (e) => {
+        var index = $(e.currentTarget).attr('id').split('chart')[1];
+        index = Number(index)
+        focusPoint(index, Graphic);
     })
 }
 

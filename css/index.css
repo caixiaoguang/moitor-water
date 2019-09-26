@@ -149,3 +149,6 @@ body,
 #container .right-card .layui-colla-content .right-chart {
   height: calc((100vh - 95px)/4);
 }
+#container .right-card .layui-colla-content .right-chart.active {
+  border: 3px solid rgba(238, 97, 41, 0.5);
+}
